@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Get CRUD</title>
+    <title>Display Page</title>
   </head>
   <style>
     table,
@@ -11,6 +11,28 @@
     td {
       border: 1px solid black;
       border-collapse: collapse;
+    }
+    .btn-edit {
+      outline: none;
+      border: none;
+      text-align: center;
+      height: 25px;
+      width: 60px;
+      border-radius: 3px;
+      cursor: pointer;
+      display: flex;
+      color: orange;
+    }
+    .btn-delete {
+      outline: none;
+      border: none;
+      text-align: center;
+      height: 25px;
+      width: 60px;
+      border-radius: 3px;
+      cursor: pointer;
+      display: flex;
+      color: red;
     }
   </style>
   <body>
@@ -31,6 +53,15 @@
         <td><%= dataTable[i].address %></td>
         <td><%= dataTable[i].gender %></td>
         <td><%= dataTable[i].phoneNumber %></td>
+        <td>
+          <a
+            class="btn-edit"
+            type="button"
+            href="/edit-crud/?id=<%=dataTable[i].id %>"
+            >Edit</a
+          >
+          <a class="btn-delete" type="button" href="#">Delete</a>
+        </td>
       </tr>
 
       <% } %>
