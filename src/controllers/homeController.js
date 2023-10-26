@@ -45,6 +45,11 @@ let putCRUD = async (req, res) => {
   let allUsers = await CRUDservice.updateUserData(data);
   return res.render("display.ejs", { dataTable: allUsers });
 };
+let deleteCRUD = async (req, res) => {
+  let id = req.query.id;
+  await CRUDservice.deleteUserById(id);
+  return res.send("delete successfully");
+};
 module.exports = {
   getHomePage: getHomePage,
   getAboutPage: getAboutPage,
@@ -53,4 +58,5 @@ module.exports = {
   displayGetCRUD: displayGetCRUD,
   getEditCRUD: getEditCRUD,
   putCRUD: putCRUD,
+  deleteCRUD: deleteCRUD,
 };
